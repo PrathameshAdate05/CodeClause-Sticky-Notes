@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewNote">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:padding="15dp"
+            android:layout_marginTop="16dp"
+            android:id="@+id/ET_New_Title"
+            android:hint="Title..."
+            android:singleLine="true"
+            android:textSize="18sp"
+            android:fontFamily="@font/robotoslabregular"
+            android:background="@drawable/text_border"
+            android:layout_marginHorizontal="8dp"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="8dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/robotoslabregular"
+                android:text="Priority:"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/red_p"
+                android:src="@drawable/ic_baseline_done"
+                android:layout_height="wrap_content"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:background="@drawable/yellow_p"
+                android:layout_marginHorizontal="8dp"
+                android:layout_height="wrap_content"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:background="@drawable/green_p"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_marginVertical="16dp"
+            android:layout_marginHorizontal="8dp"
+            android:gravity="start"
+            android:padding="15dp"
+            android:background="@drawable/text_border"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

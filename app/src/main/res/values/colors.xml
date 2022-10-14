@@ -7,4 +7,9 @@
     <color name="light_purple">#dc93f6</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="grey">#748DA6</color>
+    <color name="light_grey">#DBDDDF</color>
+    <color name="red">#F81B1B</color>
+    <color name="yellow">#FFD600</color>
+    <color name="green">#00FF6A</color>
 </resources>
