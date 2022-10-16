@@ -30,40 +30,6 @@
             android:layout_marginHorizontal="8dp"
             android:layout_height="wrap_content"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_marginTop="16dp"
-            android:layout_marginHorizontal="8dp"
-            android:layout_height="wrap_content">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:textColor="@color/black"
-                android:fontFamily="@font/robotoslabregular"
-                android:text="Priority:"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_marginStart="8dp"
-                android:id="@+id/IV_P_New_Red"
-                android:background="@drawable/red_p"
-                android:src="@drawable/ic_baseline_done"
-                android:layout_height="wrap_content"/>
-            <ImageView
-                android:layout_width="wrap_content"
-                android:background="@drawable/yellow_p"
-                android:id="@+id/IV_P_New_Yellow"
-                android:layout_marginHorizontal="8dp"
-                android:layout_height="wrap_content"/>
-            <ImageView
-                android:layout_width="wrap_content"
-                android:background="@drawable/green_p"
-                android:id="@+id/IV_P_New_Green"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-
         <EditText
             android:layout_width="match_parent"
             android:layout_marginVertical="16dp"
@@ -85,7 +51,7 @@
         android:id="@+id/FAB_SaveNote"
         android:backgroundTint="@color/medium_purple"
         android:elevation="10dp"
-        android:src="@drawable/ic_baseline_done_32"
+        android:src="@drawable/ic_baseline_done_white"
         app:borderWidth="0dp"
         app:fabCustomSize="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
