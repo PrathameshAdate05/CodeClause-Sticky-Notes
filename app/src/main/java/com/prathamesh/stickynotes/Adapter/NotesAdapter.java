@@ -16,6 +16,7 @@ import com.prathamesh.stickynotes.Home;
 import com.prathamesh.stickynotes.Model.Notes;
 import com.prathamesh.stickynotes.R;
 import com.prathamesh.stickynotes.ShowNote;
+import com.prathamesh.stickynotes.UpdateNote;
 
 import java.util.List;
 
@@ -46,8 +47,8 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
         holder.cardYear.setText(note.noteDate.substring(7,11));
 
 
+        // opening show note activity
         holder.linearLayout.setOnClickListener(view -> {
-
             Intent intent = new Intent(home, ShowNote.class);
             intent.putExtra("noteTitle", note.noteTitle);
             intent.putExtra("noteData",note.noteData);
@@ -55,6 +56,15 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
             home.startActivity(intent);
 
             Toast.makeText(home, "Reading Mode...", Toast.LENGTH_SHORT).show();
+        });
+
+        // opening update note activity
+        holder.cardEdit.setOnClickListener(view -> {
+            Intent intent = new Intent(home, UpdateNote.class);
+            intent.putExtra("noteId", note.id);
+            intent.putExtra("noteTitle", note.noteTitle);
+            intent.putExtra("noteData",note.noteData);
+            home.startActivity(intent);
         });
 
         // setting onclick on menus for each card
