@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
+import android.speech.tts.UtteranceProgressListener;
 import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +26,8 @@ public class ShowNote extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_note);
 
+        setTitle(R.string.show_note_title);
+
         title = getIntent().getStringExtra("noteTitle");
         date = getIntent().getStringExtra("noteDate");
         noteData = getIntent().getStringExtra("noteData");
@@ -44,21 +47,44 @@ public class ShowNote extends AppCompatActivity {
         textToSpeech = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int i) {
-                if (i != TextToSpeech.ERROR){
+                if (i != TextToSpeech.ERROR) {
                     textToSpeech.setLanguage(Locale.ENGLISH);
+
+                    textToSpeech.setOnUtteranceProgressListener(new UtteranceProgressListener() {
+                        @Override
+                        public void onStart(String s) {
+                            Toast.makeText(ShowNote.this, s, Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void onDone(String s) {
+
+                        }
+
+                        @Override
+                        public void onError(String s) {
+
+                        }
+                    });
+                } else {
+                    Toast.makeText(ShowNote.this, "Error Reading the note...!", Toast.LENGTH_SHORT).show();
                 }
+
+
             }
         });
 
+
         FAB_Speak.setOnClickListener(view -> {
-            if (!state){
+            if (!state) {
                 FAB_Speak.setImageResource(R.drawable.ic_baseline_pause_24);
-                String sentence = "Reading the Note. \n Title is. " + title + ".\n Date is. " + date + ".\n Note is. " + noteData;
-                textToSpeech.speak(sentence,TextToSpeech.QUEUE_FLUSH,null);
+                String sentence = "Reading the Note. \n Title is. " + title + ".\n Date is. " + date + ".\n Note is. " + noteData
+                        + ". Note Reading Complete. Thank You for using our Service...";
+                textToSpeech.speak(sentence, TextToSpeech.QUEUE_FLUSH, null);
                 state = true;
-            }else {
-                FAB_Speak.setImageResource(R.drawable.speaker_icon);
+            } else {
                 textToSpeech.stop();
+                FAB_Speak.setImageResource(R.drawable.speaker_icon);
                 state = false;
             }
         });
