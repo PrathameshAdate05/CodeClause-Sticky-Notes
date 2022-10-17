@@ -8,148 +8,17 @@
     android:background="@color/light_grey"
     tools:context=".Home">
 
-    <androidx.cardview.widget.CardView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_marginHorizontal="8dp"
-        android:elevation="10dp"
-        app:cardCornerRadius="10dp"
-        app:cardUseCompatPadding="true"
+        android:layout_marginVertical="16dp"
+        android:layout_height="match_parent"
+        android:id="@+id/RecyclerView"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:weightSum="7">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/robotoslabregular"
-                    android:gravity="center"
-                    android:text="2002"
-
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/robotoslabregular"
-                    android:gravity="center"
-                    android:text="FEB"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/robotoslabregular"
-                    android:gravity="center"
-                    android:text="08"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <com.google.android.material.divider.MaterialDivider
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:layout_marginVertical="2dp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="3dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:orientation="horizontal"
-                    android:weightSum="3">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="3"
-                        android:layout_marginTop="2dp"
-                        android:ellipsize="end"
-                        android:fontFamily="@font/robotoslabregular"
-                        android:maxLines="1"
-                        android:padding="5dp"
-                        android:text="Computer Algorithms Assignments"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:ellipsize="end"
-                    android:fontFamily="@font/robotoslabregular"
-                    android:gravity="center_vertical"
-                    android:maxLines="3"
-                    android:padding="5dp"
-                    android:text="Computer Algorithms Assignmentssdfhsjdhhdsjfhjsdhkhdskhfsfhsdkjfhjshfskjf
-sjdhjdshjkhjhsjfhsdjhsjdhjsdfh"
-                    android:textColor="@color/grey"
-                    android:textSize="16sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="7dp"
-                    android:clickable="true"
-                    android:src="@drawable/ic_baseline_share"
-                    android:focusable="true" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:src="@drawable/ic_baseline_edit" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="7dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:src="@drawable/ic_baseline_delete" />
-
-            </LinearLayout>
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/FAB_CreateNote"

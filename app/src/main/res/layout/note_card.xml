@@ -1,138 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    
+    android:layout_height="wrap_content">
+
     <androidx.cardview.widget.CardView
+        android:id="@+id/Card_Note"
         android:layout_width="match_parent"
+        android:layout_height="150dp"
         android:layout_marginHorizontal="8dp"
         android:clickable="true"
+        app:cardElevation="6dp"
+        android:padding="5dp"
         android:focusable="true"
-        android:id="@+id/Card_Note"
-        app:cardCornerRadius="10dp"
-        android:elevation="10dp"
-        app:cardUseCompatPadding="true"
-        android:layout_height="140dp">
+        app:cardCornerRadius="8dp"
+        app:cardUseCompatPadding="true">
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:weightSum="7"
-            android:layout_height="match_parent">
+            android:clickable="true"
+            android:weightSum="7">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="vertical"
+                android:layout_height="match_parent"
                 android:layout_weight="3"
                 android:gravity="center"
-                android:layout_height="match_parent">
+                android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/TV_Card_Year"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/robotoslabregular"
+                    android:gravity="center"
                     android:text="2002"
-                    android:textSize="16sp"
                     android:textColor="@color/black"
-                    android:fontFamily="@font/robotoslabregular"
-                    android:gravity="center"
-                    android:layout_height="wrap_content"/>
+                    android:textSize="16sp" />
+
                 <TextView
-                    android:layout_width="match_parent"
-                    android:text="FEB"
                     android:id="@+id/TV_Card_Month"
-                    android:textSize="16sp"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/robotoslabregular"
-                    android:gravity="center"
-                    android:layout_height="wrap_content"/>
-                <TextView
                     android:layout_width="match_parent"
-                    android:text="08"
-                    android:id="@+id/TV_Card_Day"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"
                     android:fontFamily="@font/robotoslabregular"
                     android:gravity="center"
-                    android:layout_height="wrap_content"/>
+                    android:text="FEB"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/TV_Card_Day"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/robotoslabregular"
+                    android:gravity="center"
+                    android:text="08"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
             </LinearLayout>
+
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="2dp"
-                android:layout_marginVertical="2dp"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:layout_marginVertical="2dp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="vertical"
+                android:layout_height="match_parent"
                 android:layout_marginHorizontal="3dp"
                 android:layout_weight="1"
+                android:id="@+id/CARD_Click_Linear_Layout"
                 android:gravity="center"
-                android:layout_height="match_parent">
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:orientation="horizontal"
+                    android:layout_height="wrap_content"
 
-                    android:weightSum="3"
-                    android:layout_height="wrap_content">
+                    android:orientation="horizontal"
+                    android:weightSum="3">
 
                     <TextView
-                        android:layout_width="match_parent"
                         android:id="@+id/TV_Card_Title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_weight="3"
-                        android:textSize="18sp"
-                        android:fontFamily="@font/robotoslabregular"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
-                        android:maxLines="1"
-                        android:text="Computer Algorithms Assignments"
                         android:ellipsize="end"
+                        android:fontFamily="@font/robotoslabregular"
+                        android:maxLines="1"
                         android:padding="5dp"
-                        android:layout_height="wrap_content"/>
-
+                        android:text="Computer Algorithms Assignments"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
 
                 </LinearLayout>
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_weight="3"
-                    android:textSize="16sp"
                     android:id="@+id/TV_Card_Note"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:ellipsize="end"
                     android:fontFamily="@font/robotoslabregular"
-                    android:textColor="@color/grey"
                     android:maxLines="3"
+                    android:padding="5dp"
                     android:text="Computer Algorithms Assignmentssdfhsjdhhdsjfhjsdhkhdskhfsfhsdkjfhjshfskjf
 sjdhjdshjkhjhsjfhsdjhsjdhjsdfh"
-                    android:ellipsize="end"
-                    android:padding="5dp"
-                    android:layout_height="wrap_content"/>
+                    android:textColor="@color/grey"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:gravity="center"
+                android:layout_height="match_parent"
                 android:layout_weight="3"
-                android:layout_height="match_parent">
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_marginBottom="5dp"
                     android:id="@+id/IV_Card_Share"
-                    android:src="@drawable/ic_baseline_share"
-                    android:layout_height="wrap_content"/>
-                <ImageView
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:src="@drawable/ic_baseline_share" />
+
+                <ImageView
                     android:id="@+id/IV_Card_Edit"
-                    android:src="@drawable/ic_baseline_edit"
-                    android:layout_height="wrap_content"/>
-                <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_edit" />
+
+                <ImageView
                     android:id="@+id/IV_Card_Delete"
-                    android:src="@drawable/ic_baseline_delete"
-                    android:layout_height="wrap_content"/>
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/ic_baseline_delete" />
 
             </LinearLayout>
         </LinearLayout>

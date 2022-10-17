@@ -18,37 +18,37 @@
         app:layout_constraintVertical_bias="0.5">
 
         <EditText
-            android:layout_width="match_parent"
-            android:padding="15dp"
-            android:layout_marginTop="16dp"
             android:id="@+id/ET_New_Title"
-            android:hint="Title..."
-            android:singleLine="true"
-            android:textSize="18sp"
-            android:fontFamily="@font/robotoslabregular"
-            android:background="@drawable/text_border"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginHorizontal="8dp"
-            android:layout_height="wrap_content"/>
+            android:layout_marginTop="16dp"
+            android:background="@drawable/text_border"
+            android:fontFamily="@font/robotoslabregular"
+            android:hint="Title..."
+            android:padding="15dp"
+            android:singleLine="true"
+            android:textSize="18sp" />
 
         <EditText
-            android:layout_width="match_parent"
-            android:layout_marginVertical="16dp"
-            android:layout_marginHorizontal="8dp"
-            android:gravity="start"
-            android:padding="15dp"
-            android:textSize="18sp"
             android:id="@+id/ET_New_Note"
-            android:hint="Note..."
-            android:fontFamily="@font/robotoslabregular"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="16dp"
             android:background="@drawable/text_border"
-            android:layout_height="match_parent"/>
+            android:fontFamily="@font/robotoslabregular"
+            android:gravity="start"
+            android:hint="Note..."
+            android:padding="15dp"
+            android:textSize="18sp" />
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/FAB_SaveNote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="24dp"
-        android:id="@+id/FAB_SaveNote"
         android:backgroundTint="@color/medium_purple"
         android:elevation="10dp"
         android:src="@drawable/ic_baseline_done_white"
