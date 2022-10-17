@@ -37,7 +37,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
     @NonNull
     @Override
     public NotesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new NotesViewHolder(LayoutInflater.from(home).inflate(R.layout.note_card,parent,false));
+        return new NotesViewHolder(LayoutInflater.from(home).inflate(R.layout.note_card, parent, false));
     }
 
     @Override
@@ -46,17 +46,16 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
 
         holder.cardTitle.setText(note.noteTitle);
         holder.cardNoteData.setText(note.noteData);
-        holder.cardDay.setText(note.noteDate.substring(0,2));
-        holder.cardMonth.setText(note.noteDate.substring(3,7));
-        holder.cardYear.setText(note.noteDate.substring(7,11));
-
+        holder.cardDay.setText(note.noteDate.substring(0, 2));
+        holder.cardMonth.setText(note.noteDate.substring(3, 7));
+        holder.cardYear.setText(note.noteDate.substring(7, 11));
 
         // opening show note activity
         holder.linearLayout.setOnClickListener(view -> {
             Intent intent = new Intent(home, ShowNote.class);
             intent.putExtra("noteTitle", note.noteTitle);
-            intent.putExtra("noteData",note.noteData);
-            intent.putExtra("noteDate",note.noteDate);
+            intent.putExtra("noteData", note.noteData);
+            intent.putExtra("noteDate", note.noteDate);
             home.startActivity(intent);
 
             Toast.makeText(home, "Reading Mode...", Toast.LENGTH_SHORT).show();
@@ -67,18 +66,18 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
             Intent intent = new Intent(home, UpdateNote.class);
             intent.putExtra("noteId", note.id);
             intent.putExtra("noteTitle", note.noteTitle);
-            intent.putExtra("noteData",note.noteData);
+            intent.putExtra("noteData", note.noteData);
             home.startActivity(intent);
         });
 
         // opening Bottom Sheet Dialog
         holder.cardDelete.setOnClickListener(view -> {
 
-            BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(home,R.style.BottomSheetStyle);
+            BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(home, R.style.BottomSheetStyle);
 
             notesViewModel = ViewModelProviders.of(home).get(NotesViewModel.class);
 
-            View tempView = LayoutInflater.from(home).inflate(R.layout.delete_bottom_sheet,null);
+            View tempView = LayoutInflater.from(home).inflate(R.layout.delete_bottom_sheet, null);
             bottomSheetDialog.setContentView(tempView);
             bottomSheetDialog.show();
 
@@ -88,9 +87,9 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
             no = tempView.findViewById(R.id.Bottom_Sheet_No);
 
             yes.setOnClickListener(view1 -> {
-                    notesViewModel.deleteNote(note.id);
+                notesViewModel.deleteNote(note.id);
                 Toast.makeText(home, "Note Deleted Successfully...", Toast.LENGTH_SHORT).show();
-                    bottomSheetDialog.dismiss();
+                bottomSheetDialog.dismiss();
             });
 
             no.setOnClickListener(view1 -> {
@@ -98,15 +97,14 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
             });
         });
 
-        // setting onclick on menus for each card
+        // opening share dialog
         holder.cardShare.setOnClickListener(view -> {
-            String shareNote = "Title : "+ note.noteTitle+"\nDate :"+ note.noteDate + "\nNote : "+note.noteData;
+            String shareNote = "Title : " + note.noteTitle + "\nDate :" + note.noteDate + "\nNote : " + note.noteData;
             Intent intent = new Intent(Intent.ACTION_SEND);
             intent.setType("text/plain");
-            intent.putExtra(Intent.EXTRA_TEXT,shareNote);
-            home.startActivity(Intent.createChooser(intent,"Share Via..."));
+            intent.putExtra(Intent.EXTRA_TEXT, shareNote);
+            home.startActivity(Intent.createChooser(intent, "Share Via..."));
         });
-
     }
 
     @Override
@@ -114,7 +112,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
         return notes.size();
     }
 
-    class NotesViewHolder extends RecyclerView.ViewHolder{
+    class NotesViewHolder extends RecyclerView.ViewHolder {
 
         TextView cardYear, cardMonth, cardDay, cardTitle, cardNoteData;
         ImageView cardShare, cardEdit, cardDelete;
@@ -136,5 +134,4 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
             linearLayout = itemView.findViewById(R.id.CARD_Click_Linear_Layout);
         }
     }
-
 }

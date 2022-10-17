@@ -1,7 +1,6 @@
 package com.prathamesh.stickynotes;
 
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -10,11 +9,7 @@ import android.speech.tts.UtteranceProgressListener;
 import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
 import android.widget.Toast;
-
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-
 import java.util.Locale;
 
 public class ShowNote extends AppCompatActivity {
@@ -22,7 +17,7 @@ public class ShowNote extends AppCompatActivity {
     TextView TV_Title, TV_Date, TV_NoteData;
     String title, date, noteData;
     TextToSpeech textToSpeech;
-    FloatingActionButton FAB_Speak,FAB_Translate;
+    FloatingActionButton FAB_Speak;
     boolean state = false;
 
 
@@ -76,11 +71,8 @@ public class ShowNote extends AppCompatActivity {
                 } else {
                     Toast.makeText(ShowNote.this, "Error Reading the note...!", Toast.LENGTH_SHORT).show();
                 }
-
-
             }
         });
-
 
         FAB_Speak.setOnClickListener(view -> {
             if (!state) {
@@ -96,9 +88,6 @@ public class ShowNote extends AppCompatActivity {
             }
         });
     }
-
-
-
     @Override
     protected void onPause() {
         textToSpeech.shutdown();

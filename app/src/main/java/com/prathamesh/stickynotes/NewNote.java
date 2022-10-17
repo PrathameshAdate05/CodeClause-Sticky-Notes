@@ -1,11 +1,9 @@
 package com.prathamesh.stickynotes;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -16,7 +14,6 @@ import com.prathamesh.stickynotes.ViewModel.NotesViewModel;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
 public class NewNote extends AppCompatActivity {
 
@@ -46,13 +43,13 @@ public class NewNote extends AppCompatActivity {
                 noteTitle = ET_Title.getText().toString();
                 noteData = ET_Note_Data.getText().toString();
 
-                createNote(noteTitle,noteData);
+                createNote(noteTitle, noteData);
             }
 
         });
     }
 
-    public void createNote(String title, String data){
+    public void createNote(String title, String data) {
 
         DateFormat dateFormat = new SimpleDateFormat("d MMM yyyy");
         Calendar calendar = Calendar.getInstance();

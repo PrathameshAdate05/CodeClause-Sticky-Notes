@@ -10,17 +10,17 @@
         android:layout_height="150dp"
         android:layout_marginHorizontal="8dp"
         android:clickable="true"
-        app:cardElevation="6dp"
-        android:padding="5dp"
         android:focusable="true"
+        android:padding="5dp"
         app:cardCornerRadius="8dp"
+        app:cardElevation="6dp"
         app:cardUseCompatPadding="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
             android:clickable="true"
+            android:orientation="horizontal"
             android:weightSum="7">
 
             <LinearLayout
@@ -68,11 +68,11 @@
                 android:layout_marginVertical="2dp" />
 
             <LinearLayout
+                android:id="@+id/CARD_Click_Linear_Layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="3dp"
                 android:layout_weight="1"
-                android:id="@+id/CARD_Click_Linear_Layout"
                 android:gravity="center"
                 android:orientation="vertical">
 

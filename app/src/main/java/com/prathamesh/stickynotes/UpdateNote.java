@@ -1,7 +1,6 @@
 package com.prathamesh.stickynotes;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
@@ -35,7 +34,7 @@ public class UpdateNote extends AppCompatActivity {
         ET_Note_Data = findViewById(R.id.ET_Update_Note);
         FAB_Update = findViewById(R.id.FAB_Update_Note);
 
-        id = getIntent().getIntExtra("noteId",0);
+        id = getIntent().getIntExtra("noteId", 0);
         title = getIntent().getStringExtra("noteTitle");
         noteData = getIntent().getStringExtra("noteData");
 
