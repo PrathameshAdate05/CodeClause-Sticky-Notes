@@ -10,13 +10,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.prathamesh.stickynotes.Home;
 import com.prathamesh.stickynotes.Model.Notes;
 import com.prathamesh.stickynotes.R;
 import com.prathamesh.stickynotes.ShowNote;
 import com.prathamesh.stickynotes.UpdateNote;
+import com.prathamesh.stickynotes.ViewModel.NotesViewModel;
 
 import java.util.List;
 
@@ -24,6 +27,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
 
     Home home;
     List<Notes> notes;
+    NotesViewModel notesViewModel;
 
     public NotesAdapter(Home home, List<Notes> notes) {
         this.home = home;
@@ -67,9 +71,40 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
             home.startActivity(intent);
         });
 
+        // opening Bottom Sheet Dialog
+        holder.cardDelete.setOnClickListener(view -> {
+
+            BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(home,R.style.BottomSheetStyle);
+
+            notesViewModel = ViewModelProviders.of(home).get(NotesViewModel.class);
+
+            View tempView = LayoutInflater.from(home).inflate(R.layout.delete_bottom_sheet,null);
+            bottomSheetDialog.setContentView(tempView);
+            bottomSheetDialog.show();
+
+            TextView yes, no;
+
+            yes = tempView.findViewById(R.id.Bottom_Sheet_Yes);
+            no = tempView.findViewById(R.id.Bottom_Sheet_No);
+
+            yes.setOnClickListener(view1 -> {
+                    notesViewModel.deleteNote(note.id);
+                Toast.makeText(home, "Note Deleted Successfully...", Toast.LENGTH_SHORT).show();
+                    bottomSheetDialog.dismiss();
+            });
+
+            no.setOnClickListener(view1 -> {
+                bottomSheetDialog.dismiss();
+            });
+        });
+
         // setting onclick on menus for each card
         holder.cardShare.setOnClickListener(view -> {
-            Toast.makeText(home, note.noteTitle, Toast.LENGTH_SHORT).show();
+            String shareNote = "Title : "+ note.noteTitle+"\nDate :"+ note.noteDate + "\nNote : "+note.noteData;
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.setType("text/plain");
+            intent.putExtra(Intent.EXTRA_TEXT,shareNote);
+            home.startActivity(Intent.createChooser(intent,"Share Via..."));
         });
 
     }

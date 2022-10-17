@@ -37,10 +37,17 @@ public class NewNote extends AppCompatActivity {
         save = findViewById(R.id.FAB_SaveNote);
 
         save.setOnClickListener(view -> {
-            noteTitle = ET_Title.getText().toString();
-            noteData = ET_Note_Data.getText().toString();
 
-            createNote(noteTitle,noteData);
+            if (ET_Title.getText().toString().equals(""))
+                ET_Title.setError("Enter Input");
+            else if (ET_Note_Data.getText().toString().equals(""))
+                ET_Note_Data.setError("Enter Input");
+            else {
+                noteTitle = ET_Title.getText().toString();
+                noteData = ET_Note_Data.getText().toString();
+
+                createNote(noteTitle,noteData);
+            }
 
         });
     }
