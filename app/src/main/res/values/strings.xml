@@ -3,4 +3,6 @@
     <string name="app_subtitle">The Best Place to Take Notes...</string>
     <string name="show_note_title">Read Note</string>
     <string name="update_note_title">Update Note</string>
+    <string name="design">Made with</string>
+    <string name="author">By Prathamesh</string>
 </resources>
